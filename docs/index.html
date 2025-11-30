@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ELMS Extractor</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script defer src="config.js"></script>
+    <script defer src="app.js"></script>
+</head>
+<body>
+    <header class="app-header">
+        <h1>ELMS Extractor</h1>
+        <p class="tagline">Manage ELMS course rosters safely from any modern browser.</p>
+    </header>
+    <main id="app" class="app-main">
+        <section id="login-section" class="card login-card">
+            <div class="login-copy">
+                <h2>Welcome back</h2>
+                <p>Sign in with your ELMS credentials to view every enrolled course, export rosters, and share email lists in seconds.</p>
+                <ul class="login-highlights">
+                    <li>Credentials travel only to your private API.</li>
+                    <li>Download-ready CSV and TXT files.</li>
+                    <li>Serve these static files from any host you control.</li>
+                </ul>
+            </div>
+            <form id="login-form" class="login-form" autocomplete="on">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" autocomplete="username" required />
+
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" autocomplete="current-password" required />
+
+                <button type="submit" id="login-button" class="primary full-width">Sign in</button>
+                <p class="login-note">Need help? <a href="https://github.com/shadhinnandi/Elms_Extractor" target="_blank" rel="noopener">Read the project guide</a>.</p>
+            </form>
+            <p id="login-error" class="error" role="alert" aria-live="assertive"></p>
+            <div class="login-credit" aria-label="Application author">
+                <p class="login-credit-title">Crafted by Shadhin Nandi</p>
+                <p class="login-credit-note">Buy me a coffee if it makes your life easier xD</p>
+            </div>
+        </section>
+
+        <section id="dashboard" class="card hidden dashboard-card">
+            <div class="section-header">
+                <div>
+                    <h2>Course dashboard</h2>
+                    <p class="section-subtitle">Generate clean rosters and email lists without leaving the browser.</p>
+                </div>
+                <button id="logout-button" class="secondary">Logout</button>
+            </div>
+            <div class="toolbar" role="group" aria-label="Course actions">
+                <button id="refresh-courses" class="secondary">Refresh courses</button>
+                <button id="extract-all" class="primary">Download all courses</button>
+            </div>
+            <div id="status-message" class="status" role="status" aria-live="polite"></div>
+            <div id="courses-container" class="courses"></div>
+        </section>
+    </main>
+
+    <div id="busy-overlay" class="overlay hidden" role="alert" aria-live="assertive">
+        <div class="overlay-content">
+            <span class="spinner" aria-hidden="true"></span>
+            <p id="busy-message">Working...</p>
+            <p id="busy-timer" class="busy-timer hidden"></p>
+        </div>
+    </div>
+
+    <div id="download-modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modal-title">Downloads ready</h2>
+                <button id="modal-close" class="icon-button" type="button" aria-label="Close download window">&times;</button>
+            </div>
+            <div id="modal-body" class="modal-body"></div>
+        </div>
+    </div>
+
+    <footer class="app-footer">
+        <p><span id="footer-note">Self-hosted backend required.</span> <a href="https://github.com/shadhinnandi/Elms_Extractor" target="_blank" rel="noopener">View project on GitHub</a>.</p>
+    </footer>
+</body>
+</html>
