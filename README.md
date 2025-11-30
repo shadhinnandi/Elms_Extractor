@@ -18,6 +18,12 @@ docs/                   # Static front-end (HTML/CSS/JS) for GitHub Pages
 - Bulk export every course in a single ZIP archive.
 - Host the UI on GitHub Pages (static assets) while running the API anywhere you choose.
 
+### Screenshots
+
+![Login screen with crafted-by footer](Home.png)
+![Course dashboard view](Dashboard.png)
+
+
 ## 1. Run the CLI locally (optional)
 
 ```bash
@@ -68,12 +74,6 @@ You can deploy the same app to any Python-friendly hosting provider (Render, Rai
 
 The front-end never stores your credentials; they are sent directly to your own backend over HTTPS. Downloads are generated in-browser from the API responses.
 
-### Screenshots
-
-![Login screen with crafted-by footer](docs/assets/login-screen.png)
-![Course dashboard view](docs/assets/dashboard-screen.png)
-
-> Replace the placeholder images in `docs/assets/` with fresh screenshots that match your deployment.
 
 ## Security considerations
 - Always serve the backend over HTTPS to protect credentials.
